@@ -1,0 +1,18 @@
+﻿@using qweMVC.Utilities.Helpers
+@model qweMVC.Models.PersonListViewModel
+@{
+    ViewBag.Title = "JsonContact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="body">
+    <div id="CurrentContent">
+        <h1>People</h1>
+        <ul class="unmarked" id="targetList">
+            @Html.Partial("_Partial", Model.Persons)
+        </ul>
+    </div>
+    <div class="pager-buttons">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("JsonContacts", new { page = x }))
+    </div>
+</div>

@@ -1,0 +1,125 @@
+﻿@using System.Web.Optimization
+@using qweMVC.Models
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@ViewBag.Title</title>
+
+        @Styles.Render("~/Content/styles.css")
+        @Styles.Render("~/Content/PagedList.css")
+        @Styles.Render("~/Content/themes/base/all.css")
+
+        @Scripts.Render("~/Scripts/jquery-2.1.4.js")
+        @Scripts.Render("~/Scripts/jquery-ui-1.11.4.js")
+        @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
+        @Scripts.Render("~/Scripts/scripts.js")
+    </head>
+    <body>
+        <header>
+            <img class="logo" alt=""/>
+            <h1 class="short">Just work</h1>
+            <ul class="loginSidebar" id="loginSidebar">
+                @if (User.Identity.Name=="")
+                {
+                    var model = new LoginViewModel();
+                    using (Html.BeginForm("Index", "Account", FormMethod.Post))
+                    {
+                        <li>
+                            <input class="back"
+                                   data-val="true"
+                                   data-val-required="Требуется поле User name."
+                                   id="model_Username"
+                                   name="model.Username"
+                                   type="text"
+                                   value="Enter User Name Here">
+                        </li>
+                        <li>
+                            <input class="back"
+                                   data-val="true"
+                                   data-val-required="Требуется поле Password."
+                                   id="model_Password"
+                                   name="model.Password"
+                                   type="text"
+                                   value="Enter Password Here">
+                        </li>
+                        <li>
+                            <input class="mybutton" type="submit" value="Login">
+                        </li>
+                        <li><input class="mybutton" id="shows" type="button" value="Register"></li>
+                    <li><noscript>@Html.ActionLink("Register without js", "Register", "Account")</noscript></li>
+                    }
+
+                }
+                else
+                {
+                    using (Html.BeginForm("LogOut", "Account", FormMethod.Post))
+                    {
+                        <li>Good morning</li>
+                        <li>@User.Identity.Name</li>
+                        <li>
+                            <input class="mybutton" type="submit" value="LogOut">
+                        </li>
+                    }
+                }
+            </ul>
+        </header>
+        <nav class="horizmenu">
+            <ul>
+                <li>@Html.ActionLink("JsonPage", "JsonContacts", "Home")</li>
+                <li>@Html.ActionLink("PartialPage","PartialContacts","Home")</li>
+                <li>Page3</li>
+            </ul>
+        </nav>
+        <aside class="vertmenu">
+            <ul class="sublist">
+                <li>First Button</li>
+                <li>Second Button</li>
+                <li>Third Button</li>
+            </ul>
+            <div>
+                <label class="marked">Comments</label>
+                @if (User.Identity.Name != "")
+                {
+                    using (Ajax.BeginForm("PartialComments", "Home", new AjaxOptions() {HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "comments"}))
+                    {
+                        <ul id="comments">
+                            <li>default comment</li>
+                        </ul>
+                        <input type="text" id="commentInput" name="comment" class="middle"/>
+                        <input type="submit" value="Add" class="mybutton middle2"/>
+                    }
+                }
+                else
+                {
+                    using (Ajax.BeginForm("JsonComments", "Home", new AjaxOptions() { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "comments" ,OnSuccess = "success"}))
+                    {
+                        <ul id="comments">
+                            <li>default comment</li>
+                        </ul>
+                        <input type="text" id="commentInput" name="comment" class="middle" />
+                        <input type="submit" value="Add" class="mybutton middle2" />
+                    }
+                }
+            </div>
+        </aside>
+        <section class="content">
+            @RenderBody()
+        </section>
+        <footer>
+            <h4 class="marquee">
+                <span>
+                    Some footer information
+                </span>
+            </h4>
+        </footer>
+        <div id="dialog" title="Введите данные" class="ui-widget">
+            <div><label for="username">Name: </label><input id="username" /></div>
+            <div><label for="email">Email: </label><input id="email" /></div>
+            <div><label for="password">Password: </label><input id="password" /></div>
+        </div>
+    </body>
+</html>
+
+
+

@@ -1,0 +1,10 @@
+﻿@model IEnumerable<qweMVC.Models.Person>
+
+        @foreach (var item in Model)
+        {
+            <li class="block">
+                <h4>@item.Surname @item.Name</h4>
+                <h5>Age: @item.Age</h5>
+                <h5>Number: @item.Number</h5>
+            </li>
+        }

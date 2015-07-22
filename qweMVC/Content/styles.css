@@ -1,0 +1,257 @@
+﻿body {
+    font-family: sans-serif;
+    margin: 0.6em auto;
+    width: 60em;
+    border: black solid 0.1em;
+    height: 40em;
+    position: relative;
+}
+
+header {
+    padding: 0.9em;
+    background-color: #eac47f;
+    border: 0.1em solid #a38859;
+    height: 8em;
+}
+
+.horizmenu {
+    border: 0.1em solid #a38859;
+    background-color: #eac47f;
+    height: 3em;
+}
+
+.vertmenu {
+    float: left;
+    border: 0.1em solid #a38859;
+    margin-top: 0.3em;
+    background-color: #eac47f;
+    width: 23%;
+    display: inline-block;
+}
+
+.content {
+    margin: 0.3em;
+    width: 75%;
+    height: 29.3em;
+    font-size: smaller;
+    font-family: sans-serif;
+    display: inline-block;
+    float: right;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    height: 1.8em;
+    width: 59.9em;
+    background-color: #a38859;
+    border: 0.1em solid #826c44;
+    align-self: flex-end;
+    margin-top: 24.9em;
+}
+
+ul {
+    margin: 0;
+}
+
+.horizmenu ul li {
+    display: inline-flex;
+    padding: 1em;
+}
+
+.horizmenu ul :hover {
+    background-color: #f8dba4;
+}
+
+.vertmenu .sublist {
+    padding: 0;
+}
+
+.vertmenu .sublist li {
+        display: inline-block;
+        padding: 1.1em;
+        text-align: center;
+        width: 85%;
+    }
+
+.vertmenu .sublist :hover {
+        background-color: #f8dba4;
+    }
+
+.block {
+    margin: 1em;
+    border: 0.1em solid #826c44;
+    background-color: #f8dba4;
+    width: 26%;
+    float: left;
+    list-style-type: none;
+}
+
+.logo {
+    margin-right: 1em;
+    float: left;
+    background-image: url(../Resources/logo.png);
+    background-color: inherit;
+    background-size: 100%;
+    width: 5em;
+    height: 5em;
+}
+
+.pager {
+    bottom: 0;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+}
+
+#body {
+    height: inherit;
+    position: relative;
+}
+@-webkit-keyframes scroll {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        -webkit-transform: translate(-100%, 0);
+        transform: translate(-100%, 0)
+    }
+}
+@-moz-keyframes scroll {
+    0% {
+        -moz-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        -moz-transform: translate(-100%, 0);
+        transform: translate(-100%, 0)
+    }
+}
+@keyframes scroll {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0)
+    }
+}
+.marquee {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0.2em 0;
+}
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    margin: 0;
+    -webkit-animation: scroll 20s infinite linear;
+    -moz-animation: scroll 20s infinite linear;
+    animation: scroll 20s infinite linear;
+}
+
+.unmarked ul{
+margin-left: 0;
+padding-left: 0;
+}
+
+.loginSidebar {
+    float: right;
+    margin-left: 0;
+    padding-left: 0;
+    padding-top: 1em;
+}
+
+.loginSidebar li {
+        list-style-type: none;
+    text-align: center;
+    margin: 0.1em;
+}
+
+.short {
+    display: inline-flex;
+}
+
+.back {
+    color: #808080;
+    background-color: #f8dba4;
+    margin: 0.2em;
+}
+
+.mybutton {
+    background: #826c44;
+    padding: 7px 30px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border: solid 1px #f8dba4;
+    cursor: pointer;
+    }
+
+.mybutton2 {
+        background: #826c44;
+    padding: 7px 10px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border: solid 1px #f8dba4;
+    cursor: pointer;
+}
+
+.mybutton:active
+ {
+        background: #f8dba4;
+        border: solid 1px #826c44;
+        color: black;
+}
+
+.mybutton2:active
+ {
+        background: #f8dba4;
+        border: solid 1px #826c44;
+        color: black;
+}
+
+.pager-buttons {
+  position: absolute;
+  bottom: 2em;
+    margin-left: 12.5em;
+  padding: 5px 10px;
+  font-size: 18px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.marked{
+        border-top: 0.3em solid #826c44;
+        display: block;
+        padding: 1.1em;
+        text-align: center;
+        width: 85%;
+        align-items: center;
+}
+
+.middle {
+    float: inherit;
+    margin: 1em 2em;
+}
+
+.middle2 {
+    float: inherit;
+    margin: 0.1em 5em;
+}
+
+#dialog input {
+                width: 150px;
+                margin: 5px;
+                text-align: left;
+            }
+
+#dialog label {
+                display: inline-block;
+                width: 120px;
+            }
